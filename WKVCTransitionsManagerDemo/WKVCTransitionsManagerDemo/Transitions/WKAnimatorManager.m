@@ -77,6 +77,7 @@ typedef NS_ENUM(NSInteger, WKAnimatorStyle)
     return flag ? nil : self.animator;
 }
 
+//左滑返回 暂未实现~
 ////下面这一圈都没用上 原因未知，需要调用使用··
 //- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
 //{
