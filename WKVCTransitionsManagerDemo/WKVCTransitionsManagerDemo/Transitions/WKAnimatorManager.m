@@ -12,8 +12,7 @@
 
 typedef NS_ENUM(NSInteger, WKAnimatorStyle)
 {
-    WKAnimatorStyle_CircleSpread,
-    WKAnimatorStyle_Expand,
+    WKAnimatorStyle_Vaild,
     WKAnimatorStyle_None
     
 };
@@ -42,7 +41,7 @@ typedef NS_ENUM(NSInteger, WKAnimatorStyle)
 - (void)setAnimator:(WKBaseAnimator *)animator
 {
     _animator = animator;
-    _style = animator == nil ? WKAnimatorStyle_None : ([animator isKindOfClass:[WKExpandAnimator class]] ? WKAnimatorStyle_Expand : WKAnimatorStyle_CircleSpread);
+    _style = animator == nil ? WKAnimatorStyle_None :WKAnimatorStyle_Vaild;
 }
 #pragma mark 模态推送代理
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented

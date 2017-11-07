@@ -27,10 +27,6 @@
     
 }
 
--(void) wk_viewDidLoad
-{
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -79,7 +75,6 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
-    
     return _tableView;
 }
 
