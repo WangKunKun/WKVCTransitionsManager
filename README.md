@@ -24,14 +24,11 @@ App如今的功能性以及趋向与完善、饱和，人们越加重视在app�
 
 ##封装思路
 
-	转场动画主要在于代理的实现以及动画的书写。
+转场动画主要在于代理的实现以及动画的书写。
 	
-	代理对应WKAnimatorManager类，动画基类对应WKBaseAnimator。
+代理对应WKAnimatorManager类，动画基类对应WKBaseAnimator。
 	
-	在实际过程中，在navc和vc的类目中已经将WKAnimatorManager设为了转场代理~
-	WKBaseAnimator 实现转场内容
-	
-	实际实现继承自WKBaseAnimator，实现dismiss和present方法即可
+在实际过程中，在navc和vc的类目中已经将WKAnimatorManager设为了转场代理~WKBaseAnimator 实现转场内容，实际实现继承自WKBaseAnimator，实现dismiss和present方法即可
 	
 
 
