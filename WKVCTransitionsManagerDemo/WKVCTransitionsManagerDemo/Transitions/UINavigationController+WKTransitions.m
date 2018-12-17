@@ -24,10 +24,6 @@
     Method swizzledMethod = class_getInstanceMethod([self class], @selector(wk_pushViewController:animated:));
     method_exchangeImplementations(originalMethod, swizzledMethod);
     
-//    originalMethod = class_getInstanceMethod([self class], @selector(viewDidLoad));
-//    swizzledMethod = class_getInstanceMethod([self class], @selector(wk_viewDidLoad));
-//    method_exchangeImplementations(originalMethod, swizzledMethod);
-    
     originalMethod = class_getInstanceMethod([self class], @selector(popToRootViewControllerAnimated:));
     swizzledMethod = class_getInstanceMethod([self class], @selector(wk_popToRootViewControllerAnimated:));
     method_exchangeImplementations(originalMethod, swizzledMethod);

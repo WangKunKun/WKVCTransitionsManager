@@ -8,7 +8,24 @@
 
 #import "WKWindowedModelAnimator.h"
 
+@interface WKWindowedModelAnimator ()
+
+@property (nonatomic,strong) UIButton * dismissBtn;
+@property (nonatomic,strong) UIView * tempView;
+
+
+@end
+
 @implementation WKWindowedModelAnimator
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.edgeType = UIRectEdgeLeft;
+    }
+    return self;
+}
 
 - (void)present
 {
@@ -16,11 +33,13 @@
     tempView.frame = self.fromViewController.view.frame;
     tempView.layer.cornerRadius = 10;
     tempView.layer.masksToBounds = YES;
+    self.tempView = tempView;
     self.fromViewController.view.hidden = YES;
-
     [self.containerView addSubview:tempView];
+    [self.containerView addSubview:self.dismissBtn];
+    self.dismissBtn.frame = self.containerView.bounds;
+    self.dismissBtn.enabled = YES;
     [self.containerView addSubview:self.toViewController.view];
-    
     self.toViewController.view.frame = CGRectMake(0, self.containerView.height, self.containerView.width, _toViewHeight);
     self.toViewController.view.layer.cornerRadius = 10;
     self.toViewController.view.layer.masksToBounds = YES;
@@ -36,23 +55,56 @@
     }];
 }
 
+- (NSTimeInterval)transitionDuration
+{
+    return 0.5;
+}
+
 - (void)dismiss
 {
-    NSArray *subviewsArray = self.containerView.subviews;
-    UIView *tempView = subviewsArray[MIN(subviewsArray.count, MAX(0, subviewsArray.count - 2))];
+    self.dismissBtn.enabled = NO;
+    [self.containerView addSubview:self.toViewController.view];
     //动画吧
     [UIView animateWithDuration:self.transitionDuration animations:^{
         //因为present的时候都是使用的transform，这里的动画只需要将transform恢复就可以了
         self.fromViewController.view.transform = CGAffineTransformIdentity;
-        tempView.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        [self completeTransition];
+        self.tempView.transform = CGAffineTransformIdentity;
         self.fromViewController.view.layer.cornerRadius = 0;
-
+    } completion:^(BOOL finished) {
+        [self.dismissBtn removeFromSuperview];
         self.toViewController.view.hidden = NO;
-        [tempView removeFromSuperview];
-
+        [self.tempView removeFromSuperview];
+        [self completeTransition];
     }];
+}
+
+- (UIButton *)dismissBtn
+{
+    if (!_dismissBtn) {
+        _dismissBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+        [_dismissBtn addTarget:self action:@selector(dismissClick) forControlEvents:(UIControlEventTouchUpInside)];
+    }
+    return _dismissBtn;
+}
+
+- (void)dismissClick
+{
+    if (self.toViewController) {
+        if (self.toViewController.navigationController) {
+            if (self.toViewController.navigationController.viewControllers.count > 1) {
+                [self.toViewController.navigationController popViewControllerAnimated:YES];
+            }
+            else
+            {
+                [self.toViewController.navigationController dismissViewControllerAnimated:YES completion:nil];
+            }
+        }
+        else
+        {
+            [self.toViewController dismissViewControllerAnimated:YES completion:nil];
+        }
+        
+    }
 }
 
 @end

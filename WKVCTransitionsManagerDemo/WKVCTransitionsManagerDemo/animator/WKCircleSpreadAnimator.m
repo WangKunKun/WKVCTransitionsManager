@@ -10,10 +10,14 @@
 
 @interface WKCircleSpreadAnimator ()<CAAnimationDelegate>
 
-
 @end
 
 @implementation WKCircleSpreadAnimator
+
+- (NSTimeInterval)transitionDuration
+{
+    return 0.4;
+}
 
 - (void)present
 {

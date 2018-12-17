@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "UIViewExt.h"
+
 @class WKBaseAnimator;
 
 
@@ -17,7 +19,6 @@
 @property (nonatomic,strong) WKBaseAnimator * animator;
 
 + (instancetype)sharedAnimatorManager;
-
 
 
 @end

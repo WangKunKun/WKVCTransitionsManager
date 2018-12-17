@@ -7,10 +7,9 @@
 //
 
 #import "WKBaseAnimator.h"
+static CGFloat DefaultMaxProgress = 0.5f;
 
 @interface WKBaseAnimator ()
-
-
 @property (nonatomic, weak) id <UIViewControllerContextTransitioning> transitionContext;
 
 @property (nonatomic, weak) UIViewController  *fromViewController;
@@ -37,12 +36,14 @@
 - (void)deafultSet {
     
     _transitionDuration = 0.25f;
+    _maxProgress = DefaultMaxProgress;
+    _type = UIRectEdgeNone;
 }
 
 #pragma mark - 动画代理
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
     
-    return _transitionDuration;
+    return self.transitionDuration;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -51,7 +52,6 @@
     self.toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     self.containerView      = [transitionContext containerView];
     self.transitionContext  = transitionContext;
-    
     [self animateTransitionEvent];
 }
 
@@ -62,8 +62,7 @@
 
 #pragma mark -
 - (void)completeTransition {
-//    !self.transitionContext.transitionWasCancelled
-    [self.transitionContext completeTransition:YES];
+    [self.transitionContext completeTransition:!self.transitionContext.transitionWasCancelled];
 }
 
 - (void)present

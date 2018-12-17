@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA19840D21C7465E003E8EFA /* MagicMoveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = EA19840C21C7465E003E8EFA /* MagicMoveTransition.m */; };
+		EA19841621C74D1A003E8EFA /* MagicMoveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA19841421C74D1A003E8EFA /* MagicMoveCell.m */; };
+		EA19841A21C74EA1003E8EFA /* MagicMoveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA19841921C74EA1003E8EFA /* MagicMoveVC.m */; };
+		EA19841D21C74EB6003E8EFA /* WindowModelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA19841C21C74EB6003E8EFA /* WindowModelVC.m */; };
+		EA19842021C74EC7003E8EFA /* CircleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA19841F21C74EC7003E8EFA /* CircleVC.m */; };
+		EA19842321C75176003E8EFA /* magicmove.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EA19842221C75176003E8EFA /* magicmove.jpg */; };
 		EA473C6A1FB04812003E3B03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA473C691FB04812003E3B03 /* AppDelegate.m */; };
 		EA473C6D1FB04812003E3B03 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA473C6C1FB04812003E3B03 /* ViewController.m */; };
 		EA473C701FB04812003E3B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA473C6E1FB04812003E3B03 /* Main.storyboard */; };
@@ -17,7 +23,6 @@
 		EA473C8D1FB04812003E3B03 /* WKVCTransitionsManagerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA473C8C1FB04812003E3B03 /* WKVCTransitionsManagerDemoUITests.m */; };
 		EA473CA91FB048A3003E3B03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = EA473CA81FB048A3003E3B03 /* UIImage+Tint.m */; };
 		EA473CAC1FB0492F003E3B03 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = EA473CAA1FB0492F003E3B03 /* UIViewExt.m */; };
-		EA473CBB1FB05672003E3B03 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA473CBA1FB05672003E3B03 /* BaseVC.m */; };
 		EA696F841FB15F170006F55A /* UINavigationController+WKTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA696F741FB15F170006F55A /* UINavigationController+WKTransitions.m */; };
 		EA696F851FB15F170006F55A /* UIViewController+WKTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = EA696F761FB15F170006F55A /* UIViewController+WKTransitions.m */; };
 		EA696F861FB15F170006F55A /* WKAnimatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EA696F781FB15F170006F55A /* WKAnimatorManager.m */; };
@@ -46,6 +51,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA19840B21C7465D003E8EFA /* MagicMoveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicMoveTransition.h; sourceTree = "<group>"; };
+		EA19840C21C7465E003E8EFA /* MagicMoveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicMoveTransition.m; sourceTree = "<group>"; };
+		EA19841321C74D1A003E8EFA /* MagicMoveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagicMoveCell.h; sourceTree = "<group>"; };
+		EA19841421C74D1A003E8EFA /* MagicMoveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicMoveCell.m; sourceTree = "<group>"; };
+		EA19841821C74EA1003E8EFA /* MagicMoveVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MagicMoveVC.h; sourceTree = "<group>"; };
+		EA19841921C74EA1003E8EFA /* MagicMoveVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MagicMoveVC.m; sourceTree = "<group>"; };
+		EA19841B21C74EB6003E8EFA /* WindowModelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowModelVC.h; sourceTree = "<group>"; };
+		EA19841C21C74EB6003E8EFA /* WindowModelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowModelVC.m; sourceTree = "<group>"; };
+		EA19841E21C74EC7003E8EFA /* CircleVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleVC.h; sourceTree = "<group>"; };
+		EA19841F21C74EC7003E8EFA /* CircleVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleVC.m; sourceTree = "<group>"; };
+		EA19842221C75176003E8EFA /* magicmove.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = magicmove.jpg; sourceTree = "<group>"; };
 		EA473C651FB04812003E3B03 /* WKVCTransitionsManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKVCTransitionsManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA473C681FB04812003E3B03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA473C691FB04812003E3B03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,8 +82,6 @@
 		EA473CA81FB048A3003E3B03 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		EA473CAA1FB0492F003E3B03 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		EA473CAB1FB0492F003E3B03 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
-		EA473CB91FB05672003E3B03 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
-		EA473CBA1FB05672003E3B03 /* BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		EA696F731FB15F170006F55A /* UINavigationController+WKTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+WKTransitions.h"; sourceTree = "<group>"; };
 		EA696F741FB15F170006F55A /* UINavigationController+WKTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+WKTransitions.m"; sourceTree = "<group>"; };
 		EA696F751FB15F170006F55A /* UIViewController+WKTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WKTransitions.h"; sourceTree = "<group>"; };
@@ -111,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA19842121C75156003E8EFA /* source */ = {
+			isa = PBXGroup;
+			children = (
+				EA19842221C75176003E8EFA /* magicmove.jpg */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
 		EA473C5C1FB04812003E3B03 = {
 			isa = PBXGroup;
 			children = (
@@ -138,8 +160,15 @@
 				EA473C691FB04812003E3B03 /* AppDelegate.m */,
 				EA473C6B1FB04812003E3B03 /* ViewController.h */,
 				EA473C6C1FB04812003E3B03 /* ViewController.m */,
-				EA473CB91FB05672003E3B03 /* BaseVC.h */,
-				EA473CBA1FB05672003E3B03 /* BaseVC.m */,
+				EA19841321C74D1A003E8EFA /* MagicMoveCell.h */,
+				EA19841421C74D1A003E8EFA /* MagicMoveCell.m */,
+				EA19841821C74EA1003E8EFA /* MagicMoveVC.h */,
+				EA19841921C74EA1003E8EFA /* MagicMoveVC.m */,
+				EA19841B21C74EB6003E8EFA /* WindowModelVC.h */,
+				EA19841C21C74EB6003E8EFA /* WindowModelVC.m */,
+				EA19841E21C74EC7003E8EFA /* CircleVC.h */,
+				EA19841F21C74EC7003E8EFA /* CircleVC.m */,
+				EA19842121C75156003E8EFA /* source */,
 				EA696F7B1FB15F170006F55A /* animator */,
 				EA696F721FB15F170006F55A /* Transitions */,
 				EA473C9A1FB04855003E3B03 /* tools */,
@@ -199,6 +228,8 @@
 		EA696F7B1FB15F170006F55A /* animator */ = {
 			isa = PBXGroup;
 			children = (
+				EA19840B21C7465D003E8EFA /* MagicMoveTransition.h */,
+				EA19840C21C7465E003E8EFA /* MagicMoveTransition.m */,
 				EA696F7C1FB15F170006F55A /* WKCircleSpreadAnimator.h */,
 				EA696F7D1FB15F170006F55A /* WKCircleSpreadAnimator.m */,
 				EA696F7E1FB15F170006F55A /* WKExpandAnimator.h */,
@@ -317,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA19842321C75176003E8EFA /* magicmove.jpg in Resources */,
 				EA473C751FB04812003E3B03 /* LaunchScreen.storyboard in Resources */,
 				EA473C721FB04812003E3B03 /* Assets.xcassets in Resources */,
 				EA473C701FB04812003E3B03 /* Main.storyboard in Resources */,
@@ -348,16 +380,20 @@
 				EA696F861FB15F170006F55A /* WKAnimatorManager.m in Sources */,
 				EA696F891FB15F170006F55A /* WKExpandAnimator.m in Sources */,
 				EA473C6D1FB04812003E3B03 /* ViewController.m in Sources */,
+				EA19842021C74EC7003E8EFA /* CircleVC.m in Sources */,
 				EA473C781FB04812003E3B03 /* main.m in Sources */,
 				EA473CAC1FB0492F003E3B03 /* UIViewExt.m in Sources */,
 				EA696F881FB15F170006F55A /* WKCircleSpreadAnimator.m in Sources */,
+				EA19841D21C74EB6003E8EFA /* WindowModelVC.m in Sources */,
 				EA696F8B1FB15F170006F55A /* WKWindowedModelAnimator.m in Sources */,
-				EA473CBB1FB05672003E3B03 /* BaseVC.m in Sources */,
 				EA473CA91FB048A3003E3B03 /* UIImage+Tint.m in Sources */,
+				EA19841A21C74EA1003E8EFA /* MagicMoveVC.m in Sources */,
 				EA696F8A1FB15F170006F55A /* WKFilpToonAnimator.m in Sources */,
+				EA19841621C74D1A003E8EFA /* MagicMoveCell.m in Sources */,
 				EA696F871FB15F170006F55A /* WKBaseAnimator.m in Sources */,
 				EA696F851FB15F170006F55A /* UIViewController+WKTransitions.m in Sources */,
 				EA473C6A1FB04812003E3B03 /* AppDelegate.m in Sources */,
+				EA19840D21C7465E003E8EFA /* MagicMoveTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

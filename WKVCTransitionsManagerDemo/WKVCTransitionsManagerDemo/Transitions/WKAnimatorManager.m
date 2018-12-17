@@ -7,23 +7,19 @@
 //
 
 #import "WKAnimatorManager.h"
-#import "WKCircleSpreadAnimator.h"
-#import "WKExpandAnimator.h"
-
-typedef NS_ENUM(NSInteger, WKAnimatorStyle)
-{
-    WKAnimatorStyle_Vaild,
-    WKAnimatorStyle_None
-    
-};
+#import "WKBaseAnimator.h"
+#import "UIViewController+WKTransitions.h"
+#import "UINavigationController+WKTransitions.h"
 
 
-@interface WKAnimatorManager ()
 
-@property (nonatomic, assign) WKAnimatorStyle style;
-//@property (nonatomic, strong) UIPercentDrivenInteractiveTransition *percentDrivenTransition;
-//@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer * edgePan;
-//@property (nonatomic, strong) UINavigationController * edgePanVC;
+@interface WKAnimatorManager ()<UIGestureRecognizerDelegate>
+
+@property (nonatomic, strong) UIPercentDrivenInteractiveTransition *percentDrivenTransition;
+@property (nonatomic, strong) UIScreenEdgePanGestureRecognizer * edgePan;
+@property (nonatomic, weak  ) UINavigationController * edgePanVC;
+@property (nonatomic, assign) BOOL isLeftSWipPop;
+
 @end
 
 @implementation WKAnimatorManager
@@ -41,7 +37,7 @@ typedef NS_ENUM(NSInteger, WKAnimatorStyle)
 - (void)setAnimator:(WKBaseAnimator *)animator
 {
     _animator = animator;
-    _style = animator == nil ? WKAnimatorStyle_None :WKAnimatorStyle_Vaild;
+
 }
 #pragma mark 模态推送代理
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
@@ -72,81 +68,105 @@ typedef NS_ENUM(NSInteger, WKAnimatorStyle)
     if (self.animator) {
         self.animator.type = UINavigationControllerOperationPush == operation;
     }
-    BOOL flag = NO;// self.style == WKAnimatorStyle_Expand && operation == UINavigationControllerOperationPop;
-    return flag ? nil : self.animator;
+    return self.animator;
 }
 
-//左滑返回 暂未实现~
 ////下面这一圈都没用上 原因未知，需要调用使用··
-//- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
-//{
-//    if ([animationController isKindOfClass:[WKBaseAnimator class]])
-//    {
-//        WKBaseAnimator * baseA = (WKBaseAnimator *)animationController;
-//        if (baseA.type) {//pop
-//            self.edgePanVC = navigationController;
-//            self.edgePan.edges = UIRectEdgeLeft;
-//            if (_edgePan.view) {
-//                [_edgePan.view removeGestureRecognizer:_edgePan];
-//            }
-//            [navigationController.view addGestureRecognizer:self.edgePan];
-//        }
-//        else
-//        {
-//            return self.percentDrivenTransition;
-//        }
-//    }
-//    
-//
-//    return nil;
-//}
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
+{
+    if ([animationController isKindOfClass:[WKBaseAnimator class]])
+    {
+        WKBaseAnimator * baseA = (WKBaseAnimator *)animationController;
+        if (!baseA.type)
+        {
+            if (baseA.edgeType == UIRectEdgeNone)
+            {
+                return nil;
+            }
+            return self.percentDrivenTransition;
+        }
+    }
+    
+    return nil;
+}
 
-//- (UIPercentDrivenInteractiveTransition *)percentDrivenTransition
-//{
-//    if (!_percentDrivenTransition) {
-//        _percentDrivenTransition = [UIPercentDrivenInteractiveTransition new];
-//    }
-//    return _percentDrivenTransition;
-//}
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    UIViewController * vc = (UIViewController *)viewController;
+    if (vc.wk_navAnimator && vc.wk_navAnimator.edgeType != UIRectEdgeNone) {
+        [self removeCustomEdgePan];
+        self.edgePanVC = navigationController;
+        self.edgePan.edges = vc.wk_navAnimator.edgeType;
+        [self.edgePanVC.view addGestureRecognizer:self.edgePan];
+    }
+}
 
-//- (UIScreenEdgePanGestureRecognizer *)edgePan
-//{
-//    if (!_edgePan) {
-//        _edgePan = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)];
-//    }
-//    return _edgePan;
-//}
-//
-//- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)pan
-//{
-//    CGFloat progress = [pan translationInView:self.edgePanVC.view].x / self.edgePanVC.view.bounds.size.width;
-//    switch (pan.state) {
-//        case UIGestureRecognizerStateBegan:
-//        {
-//            [self.edgePanVC popViewControllerAnimated:YES];
-//            self.percentDrivenTransition = [UIPercentDrivenInteractiveTransition new];
-//        }
-//            break;
-//        case UIGestureRecognizerStateChanged:
-//        {
-//            [self.percentDrivenTransition updateInteractiveTransition:progress];
-//        }
-//            break;
-//        case UIGestureRecognizerStateCancelled:
-//        case UIGestureRecognizerStateEnded:
-//        {
-//            if (progress > 0.5) {
-//                [self.percentDrivenTransition finishInteractiveTransition];
-//            }
-//            else
-//            {
-//                [self.percentDrivenTransition cancelInteractiveTransition];
-//            }
-//            self.percentDrivenTransition = nil;
-//        }
-//        default:
-//            break;
-//    }
-//}
+
+//系统左滑返回x实现方式
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer == self.edgePan) {
+        UIScreenEdgePanGestureRecognizer * pan = (UIScreenEdgePanGestureRecognizer *)gestureRecognizer;
+        CGPoint point = [pan locationInView:self.edgePanVC.view];
+        return (point.x < 50);
+    }
+    return NO;
+
+}
+
+
+#pragma mark getter/setter
+- (UIScreenEdgePanGestureRecognizer *)edgePan
+{
+    if (!_edgePan) {
+        _edgePan = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgePanGesture:)];
+        _edgePan.delegate = self;
+    }
+    return _edgePan;
+}
+
+- (void)edgePanGesture:(UIScreenEdgePanGestureRecognizer *)pan
+{
+    CGPoint point = [pan translationInView:self.edgePanVC.view];
+    CGFloat progress = point.x / self.edgePanVC.view.bounds.size.width;
+    switch (pan.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            self.isLeftSWipPop = YES;
+            self.percentDrivenTransition = [UIPercentDrivenInteractiveTransition new];
+            [self.edgePanVC popViewControllerAnimated:YES];
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            [self.percentDrivenTransition updateInteractiveTransition:progress];
+        }
+            break;
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+        {
+            if (progress > self.animator.maxProgress) {
+                [self.percentDrivenTransition finishInteractiveTransition];
+                [self removeCustomEdgePan];
+            }
+            else
+            {
+                [self.percentDrivenTransition cancelInteractiveTransition];
+            }
+            self.percentDrivenTransition = nil;
+            self.isLeftSWipPop = NO;
+        }
+        default:
+            break;
+    }
+}
+
+- (void)removeCustomEdgePan
+{
+    if (self.edgePan.view) {
+        [self.edgePan.view removeGestureRecognizer:self.edgePan];
+    }
+    self.edgePan.edges = UIRectEdgeNone;
+}
 
 @end
