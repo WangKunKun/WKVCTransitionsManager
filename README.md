@@ -20,7 +20,11 @@ App如今的功能性以及趋向与完善、饱和，人们越加重视在app�
 	
 ##效果展示
 
-![](转场.gif)
+![](1.gif)
+
+![](2.gif)
+
+![](3.gif)
 
 ##封装思路
 
@@ -29,6 +33,10 @@ App如今的功能性以及趋向与完善、饱和，人们越加重视在app�
 代理对应WKAnimatorManager类，动画基类对应WKBaseAnimator。
 	
 在实际过程中，在navc和vc的类目中已经将WKAnimatorManager设为了转场代理~WKBaseAnimator 实现转场内容，实际实现继承自WKBaseAnimator，实现dismiss和present方法即可
+
+注：现已支持左滑手势返回，仅需设置edgeType为UIRectEdgeLeft即可
+。
+但是由于系统侧滑返回仅仅支持view层级动画，所以如扩展的转场动画需要左滑返回，动画必须是基于view层级的动画。
 	
 
 

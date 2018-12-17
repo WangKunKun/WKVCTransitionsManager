@@ -13,7 +13,6 @@
 @property (nonatomic,strong) UIButton * dismissBtn;
 @property (nonatomic,strong) UIView * tempView;
 
-
 @end
 
 @implementation WKWindowedModelAnimator

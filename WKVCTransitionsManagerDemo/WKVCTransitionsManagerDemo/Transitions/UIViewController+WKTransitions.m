@@ -56,10 +56,6 @@
     originalMethod = class_getInstanceMethod([self class], @selector(dismissViewControllerAnimated:completion:));
     swizzledMethod = class_getInstanceMethod([self class], @selector(wk_dismissViewControllerAnimated:completion:));
     method_exchangeImplementations(originalMethod, swizzledMethod);
-    
-//    originalMethod = class_getInstanceMethod([self class], @selector(viewDidLoad));
-//    swizzledMethod = class_getInstanceMethod([self class], @selector(wk_viewDidLoad));
-//    method_exchangeImplementations(originalMethod, swizzledMethod);
 }
 
 - (instancetype)wk_init
