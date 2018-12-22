@@ -98,6 +98,7 @@
 		EA696F811FB15F170006F55A /* WKFilpToonAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKFilpToonAnimator.m; sourceTree = "<group>"; };
 		EA696F821FB15F170006F55A /* WKWindowedModelAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWindowedModelAnimator.h; sourceTree = "<group>"; };
 		EA696F831FB15F170006F55A /* WKWindowedModelAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWindowedModelAnimator.m; sourceTree = "<group>"; };
+		EAE0C0D521CC770C0099F4C7 /* WKAnimatorManagerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKAnimatorManagerHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +222,7 @@
 				EA696F781FB15F170006F55A /* WKAnimatorManager.m */,
 				EA696F791FB15F170006F55A /* WKBaseAnimator.h */,
 				EA696F7A1FB15F170006F55A /* WKBaseAnimator.m */,
+				EAE0C0D521CC770C0099F4C7 /* WKAnimatorManagerHeader.h */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";

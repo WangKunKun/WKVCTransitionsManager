@@ -44,12 +44,9 @@
     //把动画前后的两个ViewController加到容器中,顺序很重要,snapShotView在上方
     [containerView addSubview:toVC.view];
     [containerView addSubview:self.tempView];
-    
-    
     //0.5就已经回复原状了，0.25就好了
     self.maxProgress = 0.25;
     //动起来。第二个控制器的透明度0~1；让截图SnapShotView的位置更新到最新；
-    
     [UIView animateWithDuration:[self transitionDuration] delay:0.0f usingSpringWithDamping:0.8f initialSpringVelocity:1.0f options:UIViewAnimationOptionCurveLinear animations:^{
         [containerView layoutIfNeeded];
         toVC.view.alpha = 1.0;

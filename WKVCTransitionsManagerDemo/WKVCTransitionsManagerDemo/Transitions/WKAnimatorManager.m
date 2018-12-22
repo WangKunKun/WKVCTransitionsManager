@@ -92,9 +92,9 @@
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
+    [self removeCustomEdgePan];
     UIViewController * vc = (UIViewController *)viewController;
     if (vc.wk_navAnimator && vc.wk_navAnimator.edgeType != UIRectEdgeNone) {
-        [self removeCustomEdgePan];
         self.edgePanVC = navigationController;
         self.edgePan.edges = vc.wk_navAnimator.edgeType;
         [self.edgePanVC.view addGestureRecognizer:self.edgePan];

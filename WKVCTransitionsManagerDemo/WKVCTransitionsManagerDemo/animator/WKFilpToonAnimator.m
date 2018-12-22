@@ -71,14 +71,12 @@
     //拿到present时候的View
     self.presentFromView.layer.transform = CATransform3DMakeRotation(-M_PI_2, 0, 1, 0);
     self.presentFromView.subviews.lastObject.alpha = 1;
-   
     UIView * shadowView = [self.fromViewController.view viewWithTag:12212];
     if (!self.presentFromView.superview) {
         [self.containerView addSubview:self.presentFromView];
         NSLog(@"%@",self.presentFromView);
     }
     [self.containerView insertSubview:self.toViewController.view belowSubview:self.presentFromView];
-    
     [UIView animateWithDuration:self.transitionDuration animations:^{
         self.presentFromView.layer.transform = CATransform3DIdentity;
         shadowView.alpha = 1.0;
