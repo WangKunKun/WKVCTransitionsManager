@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
   s.name         = "WKAnimatorManager"
-  s.version      = "1.0.1"        # 版本号 与 你仓库的 标签号 对应
+  s.version      = "0.1.0"        # 版本号 与 你仓库的 标签号 对应
   s.license      = "MIT"          # 开源证书
   s.summary      = "VC转场动画管理框架，使用简便，扩充性强，支持左滑动画" # 项目简介
 
@@ -31,7 +31,8 @@ Pod::Spec.new do |s|
   #
 
   s.source       = { :git => "https://github.com/WangKunKun/WKVCTransitionsManager.git", :tag => "#{s.version}" }#你的仓库地址，不能用SSH地址
-  s.source_files  = "Transitions", "Transitions/*.{h,m}"
+  s.source_files  = "Transitions"
+  s.public_header_files = 'Transitions/*.h'
   s.requires_arc = true # 是否启用ARC
   s.platform     = :ios, "7.0" #平台及支持的最低版本
   s.frameworks   = "UIKit", "Foundation" #支持的框架

@@ -7,7 +7,7 @@
 //
 
 #import "WKBaseAnimator.h"
-
+#import "UIViewExt.h"
 @interface WKFilpToonAnimator : WKBaseAnimator
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "WKBaseAnimator.h"
-
+#import "UIViewExt.h"
 @interface WKCircleSpreadAnimator : WKBaseAnimator
 
 @property (nonatomic,assign) CGRect circleFrame;

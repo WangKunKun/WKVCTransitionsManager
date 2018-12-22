@@ -7,7 +7,7 @@
 //
 
 #import "WKBaseAnimator.h"
-
+#import "UIViewExt.h"
 
 ///参数必传
 @interface MagicMoveTransition : WKBaseAnimator

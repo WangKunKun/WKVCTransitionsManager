@@ -9,6 +9,7 @@
 
 
 #import "WKBaseAnimator.h"
+#import "UIViewExt.h"
 @interface WKExpandAnimator : WKBaseAnimator
 
 @property (nonatomic, assign) CGRect viewFrame;

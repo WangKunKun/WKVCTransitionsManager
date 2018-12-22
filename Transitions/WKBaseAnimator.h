@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "UIViewExt.h"
 
 @interface WKBaseAnimator : NSObject<UIViewControllerAnimatedTransitioning>
 /**
