@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
   s.name         = "WKAnimatorManager"
-  s.version      = "0.1.0"        # 版本号 与 你仓库的 标签号 对应
+  s.version      = "0.1.1"        # 版本号 与 你仓库的 标签号 对应
   s.license      = "MIT"          # 开源证书
   s.summary      = "VC转场动画管理框架，使用简便，扩充性强，支持左滑动画" # 项目简介
 
